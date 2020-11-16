@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
@@ -7,6 +8,12 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 namespace PolymorphicModelBinding.ModelBinders
 {
     #region snippet
+
+    public class DeviceWrapper
+	{
+        public Device Device { get; set; }
+	}
+
     public abstract class Device
     {
         public string Kind { get; set; }
@@ -14,11 +21,13 @@ namespace PolymorphicModelBinding.ModelBinders
 
     public class Laptop : Device
     {
+        [Required]
         public string CPUIndex { get; set; }
     }
 
     public class SmartPhone : Device
     {
+        [Required]
         public string ScreenSize { get; set; }
     }
 

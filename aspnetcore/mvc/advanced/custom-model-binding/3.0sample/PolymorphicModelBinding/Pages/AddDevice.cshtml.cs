@@ -26,28 +26,28 @@ namespace PolymorphicModelBinding.Pages
         [TempData]
         public string Message { get; set; }
 
-        [BindProperty]
-        public Device Device { get; set; }
+	    [BindProperty]
+	    public DeviceWrapper Device { get; set; }
 
-        public IActionResult OnPost()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+	    public IActionResult OnPost()
+	    {
+	        if (!ModelState.IsValid)
+	        {
+	            return Page();
+	        }
 
-            switch (Device)
-            {
-                case Laptop laptop:
-                    Message = $"You added a Laptop with a CPU Index of {laptop.CPUIndex}.";
-                    break;
+	        switch (Device.Device)
+	        {
+	            case Laptop laptop:
+	                Message = $"You added a Laptop with a CPU Index of {laptop.CPUIndex}.";
+	                break;
 
-                case SmartPhone smartPhone:
-                    Message = $"You added a SmartPhone with a Screen Size of {smartPhone.ScreenSize}.";
-                    break;
-            }
+	            case SmartPhone smartPhone:
+	                Message = $"You added a SmartPhone with a Screen Size of {smartPhone.ScreenSize}.";
+	                break;
+	        }
 
-            return RedirectToPage("/Index");
-        }
+	        return RedirectToPage("/Index");
+	    }
     }
 }

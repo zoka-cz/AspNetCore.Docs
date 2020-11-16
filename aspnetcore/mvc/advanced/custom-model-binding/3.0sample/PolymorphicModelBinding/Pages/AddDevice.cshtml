@@ -13,17 +13,17 @@
 
             <div class="form-group">
                 <label for="Device_Kind">Kind</label>
-                <select id="Device_Kind" name="Device.Kind" asp-items="Model.DeviceKinds" class="form-control"></select>
+                <select id="Device_Kind" name="Device.Device.Kind" asp-items="Model.DeviceKinds" class="form-control"></select>
             </div>
 
             <div class="form-group">
                 <label for="Device_CPUIndex">CPUIndex</label>
-                <input id="Device_CPUIndex" name="Device.CPUIndex" class="form-control"></select>
+                <input id="Device_CPUIndex" name="Device.Device.CPUIndex" class="form-control"/>
             </div>
 
             <div class="form-group">
                 <label for="Device_ScreenSize">ScreenSize</label>
-                <input id="Device_ScreenSize" name="Device.ScreenSize" class="form-control"></select>
+                <input id="Device_ScreenSize" name="Device.Device.ScreenSize" class="form-control"/>
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
